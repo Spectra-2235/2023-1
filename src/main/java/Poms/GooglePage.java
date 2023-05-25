@@ -23,9 +23,7 @@ public class GooglePage {
 		this.driver = driver;
 	}
 
-	public GooglePage() {	
-		// TODO Auto-generated constructor stub
-	}
+
 
 	public void typeOnSearchBar(String value) {
 

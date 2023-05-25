@@ -34,6 +34,7 @@ public String selectCheckBoxByValue(String option) {
 	String value ="";
 	Select cb = new Select(this.driver.findElement (By.xpath(filexXpath)));
 	List<WebElement> options = cb.getOptions();
+	
 	cb.selectByValue(option);
 	return value;
 }
@@ -45,4 +46,11 @@ public String selectCheckBoxByText(String option) {
 	return value;
 }
 	
+public String selectCheckBoxByIndex(int option) {
+	String value="";
+	Select cb=new Select(this.driver.findElement(By.xpath(speedXpath)));
+	
+	return value;
+}
+
 }
