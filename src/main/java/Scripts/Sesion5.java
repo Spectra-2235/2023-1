@@ -34,13 +34,20 @@ public class Sesion5 {
 					Thread.sleep(1000);
 					gp.clickSamsung();
 					Thread.sleep(1000);
-					gp.Menor();
+					gp.clickmenoramayor();
+					Thread.sleep(1000);
+					gp.click2();
+					Thread.sleep(1000);
+					gp.android();
+					Thread.sleep(1000);
+					gp.menor();
+					
 		}
 		
 		@After
 		public void teardown() {
 			
-			//driver.quit();
+			driver.quit();
 		}
 		
 	}

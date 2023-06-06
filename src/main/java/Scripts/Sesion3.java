@@ -1,6 +1,7 @@
 package Scripts;
 
-	import org.junit.Before;
+	import org.junit.After;
+import org.junit.Before;
 	import org.junit.Test;
 	import org.openqa.selenium.WebDriver;
 	import org.openqa.selenium.chrome.ChromeDriver;
@@ -25,12 +26,19 @@ package Scripts;
 			GooglePage gp = new GooglePage(driver);
 			TAP tap = new TAP(driver);
 			Thread.sleep(3000);
-			gp.typeOnSearchBar("test automation practice");
-			gp.clickResultById(0);
+			
+			gp.typeOnSearchBar("automation Testing practice");
+			tap.clickentrar();	
 			tap.clickAlertButton();
 			Thread.sleep(2000);
 			tap.acceptAlert();
 			gp.printMessage();
 			tap.clickAlertButton();
 }
+		@After
+		public void teardown() {
+			
+			driver.quit();
+		}
+
 	}

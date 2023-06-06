@@ -32,20 +32,24 @@ public class Sesion4 {
 		TAP tap = new TAP(driver);
 		Thread.sleep(3000);
 		//Busqueda en google
-		gp.typeOnSearchBar("test automation practice");
+		gp.typeOnSearchBar("automation Testing practice");
 		//Click en primer resultado
-		gp.clickResultById(0);
+		tap.clickentrar();
 		//Selecciona DOC file
 		String value = tap.selectCheckBoxByValue("3");
 		System.out.println(value);
+		Thread.sleep(1000);
 		//
 		String value2 = tap.selectCheckBoxByText("Medium");
+		Thread.sleep(1000);
+		String value3 = tap.SelectCheckboxbyoption("2");
+		
 		
 	}
 	@After
 	public void teardown() {
 		
-		//driver.quit();
+		driver.quit();
 	}
 
 }

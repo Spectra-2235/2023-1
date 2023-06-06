@@ -12,12 +12,21 @@ public class TAP {
 	String alertButtonXpath = "//button[text()='Click Me']";
 	String filexXpath = "//select[@name='files']";
 	String speedXpath = "//select[@name='speed']";
-
+	String selectXpath="//select[@name='number']";
+	String botonwiki="//*[@id=\"Wikipedia1_wikipedia-search-form\"]/div/span[1]/a/img";
+	String ATP="//*[@id=\"rso\"]/div[1]/div/div/div[1]/div/a/h3";
 public TAP(WebDriver driver) {
 	
 	super();
 	this.driver = driver;
 
+}
+
+public void clickentrar() {
+	
+	WebElement button = this.driver.findElement(By.xpath(this.ATP));
+	button.click();
+	
 }
 public void clickAlertButton() {
 	
@@ -45,6 +54,12 @@ public String selectCheckBoxByText(String option) {
 	cb.selectByVisibleText(option);
 	return value;
 }
+public String SelectCheckboxbyoption(String option) {
+	String value ="";
+	Select cb = new Select(this.driver.findElement(By.xpath(selectXpath)));
+	cb.selectByVisibleText(option);
+	return value;
+}
 	
 public String selectCheckBoxByIndex(int option) {
 	String value="";
@@ -53,4 +68,9 @@ public String selectCheckBoxByIndex(int option) {
 	return value;
 }
 
+public void clickWikipediaIcon() {
+	WebElement wiki = this.driver.findElement(By.xpath(this.botonwiki));
+	wiki.click();
+	
+}
 }

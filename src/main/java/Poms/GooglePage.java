@@ -17,6 +17,7 @@ public class GooglePage {
 	String resultsClass = "//h3[@class='LC20lb MBeuO DKV0Md']";
 	String resultsParagraphs = "//*[@id=\"mw-content-text\"]/div[1]/p";
 	String Message = "//*[@id=\"demo\"]";
+	String SResult="//*[@id=\"rso\"]/div[1]/div/div/div/div/div/div/div/div[1]/a/h3";
 
 	public GooglePage(WebDriver driver) {
 		super();
@@ -37,11 +38,24 @@ public class GooglePage {
 		fr.click();
 	}
 	
+	
 	public void printFirstResult() {
 		WebElement fr=driver.findElement(By.xpath(firstResult));
 		System.out.print(fr.getText());
 		
 	}
+	
+	public void clickSResult() {
+		WebElement fr=driver.findElement(By.xpath(SResult));
+		fr.click();
+	}
+	
+	public void printSResult() {
+		WebElement fr=driver.findElement(By.xpath(SResult));
+		System.out.print(fr.getText());
+		
+	}
+	
 	public void clickSecondResult() {
 		WebElement fr=driver.findElement(By.xpath(firstResult));
 		fr.click();
@@ -76,10 +90,11 @@ public class GooglePage {
 	}
 
 	public void clickResultById(int i) {
-		
+		WebElement fr = driver .findElement(By.xpath(Message));
+		fr.click();
 		
 	}
-
+	
 	public void printMessage() {
 		WebElement fr = driver .findElement(By.xpath(Message));
 		System.out.println(fr.getText());

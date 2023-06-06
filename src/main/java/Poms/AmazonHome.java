@@ -6,7 +6,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 public class AmazonHome {
 
 	
@@ -16,14 +15,17 @@ public class AmazonHome {
 	String searchBarId2 = "twotabsearchtextbox";
 	String secondResult="celulares";
 	String Samsung="//*[@id=\'p_89/SAMSUNG']/span/a/div";
-	String MenorCelular="//span[@class='a-offscreen']";
+	String menoramayor="//*[@id=\"search\"]/span/div/h1/div/div[2]/div/div/form/span";
+	String menorMayor= "//*[@id=\"s-result-sort-select_1\"]";
+	String android11="//*[@id=\"p_n_feature_twenty-two_browse-bin/36756470011\"]/span/a/div";
+	String s="//*[@id=\"search\"]/div[1]/div[1]/div/span[1]/div[1]/div[3]/div/div/div/div/div[2]/div[3]/div/a/span/span[2]/span[2]";
+	String n="//*[@id=\"search\"]/div[1]/div[1]/div/span[1]/div[1]/div[3]/div/div/div/div/div[2]/div[1]/h2/a/span";
 	public AmazonHome() {
 		
 		WebDriver driver;	
 		
 	}
 
-	
 	public AmazonHome(WebDriver driver) {
 		super();
 		this.driver=driver;
@@ -59,33 +61,32 @@ public class AmazonHome {
 		samsungButton.click();
 	}
 
-	 public void Menor() {
-		  List<WebElement> priceElements = driver.findElements(By.xpath(MenorCelular));
-	        double minPrice = Double.MAX_VALUE;
-	        WebElement cheapestPhoneElement = null;
-	        
-	        for (WebElement priceElement : priceElements) {
-	            String priceText = priceElement.getText().replaceAll("[^\\d.]", "");
-	            if (!priceText.isEmpty()) {
-	                double price = Double.parseDouble(priceText);
-	                if (price < minPrice) {
-	                    minPrice = price;
-	                    cheapestPhoneElement = priceElement;
-	                    
-	                }
-	            }
-	        }
-	        if (cheapestPhoneElement != null) {
-	            System.out.println("El teléfono más barato es: " + cheapestPhoneElement.getText());
-	        } else {
-	            System.out.println("No se encontró ningún teléfono.");
-	        }
-	    
+	
+	public void clickmenoramayor() {
+		WebElement fr=driver.findElement(By.xpath(menoramayor));
+		fr.click();
+		
+	}
+	public void click2() {
+		WebElement r=driver.findElement(By.xpath(menorMayor));
+		r.click();
+	}
+	
+	 public void android() {
+		 WebElement r=driver.findElement(By.xpath(android11));
+			r.click();
 	 }
+	 
+	public void menor() {
+		WebElement r=driver.findElement(By.xpath(n));
+		System.out.println(r.getText());
+		WebElement fr=driver.findElement(By.xpath(s));
+		System.out.print(fr.getText());
+	}
+	 
 }
 	 
-	 
-	 
+
 
 	
 	
